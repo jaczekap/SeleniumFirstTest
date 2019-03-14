@@ -24,8 +24,7 @@ public class JavaScriptExecutionTest {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 		driverChrome = new ChromeDriver();
 		driverChrome.manage().window().maximize();
-		//driverChrome.get("http://www.google.com");
-		driverChrome.get("https://magento.com/");
+		driverChrome.get("http://www.google.com");
 	}
 	
 	
