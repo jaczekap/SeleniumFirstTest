@@ -39,7 +39,7 @@ public class DroDownMenuTest {
 	public void testAllLanguagesArePresent() {
 		List<String> expectedLanguages = new ArrayList<String>( Arrays.asList("", "Français (FR)", "Deutsch (DE)", "Português (BR)", "Español (LATAM)", "日本の (JP)"));
 		List<WebElement> elements = getLanguages();
-		List<String> actualLanguages = elements.stream().map(e -> e.getText()).collect(Collectors.toList());
+		List<String> actualLanguages = elements.stream().map(WebElement::getText).collect(Collectors.toList());
 		
 		assertEquals(expectedLanguages, actualLanguages);
 	}
