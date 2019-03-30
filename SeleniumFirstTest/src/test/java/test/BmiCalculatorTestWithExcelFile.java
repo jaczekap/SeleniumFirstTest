@@ -85,7 +85,7 @@ public class BmiCalculatorTestWithExcelFile {
 	public void testResultIsCorrect() {
 		sendTestData();
 		chromeDriver.findElement(By.xpath("/html/body/section/div/div[2]/div[1]/div/div/form/div[4]/div/button/span")).click();
-		 assertTrue(chromeDriver.findElement(By.className("result-v1__title")).getText().contains(bmi));
+		assertTrue(chromeDriver.findElement(By.className("result-v1__title")).getText().contains(bmi));
 		assertTrue(chromeDriver.findElement(By.className("result-v1__title-des")).getText().contains(bmiCategory));
 	}
 
