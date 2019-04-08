@@ -25,7 +25,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.opencsv.CSVReader;
 
 @RunWith(Parameterized.class)
-public class BmiCalculatorTestWithCsvFile {
+public class BmiCalculatorWithCsvFileTest {
 	
 	private WebDriver chromeDriver;
 	private WebDriverWait wait;
@@ -39,7 +39,7 @@ public class BmiCalculatorTestWithCsvFile {
 		return getTestData("src/test/resources/Bmi_Data.csv");
 	}
 
-	public BmiCalculatorTestWithCsvFile(String weight, String height, String bmi, String bmiCategory) {
+	public BmiCalculatorWithCsvFileTest(String weight, String height, String bmi, String bmiCategory) {
 		this.weight = weight;
 		this.height = height;
 		this.bmi = bmi;
@@ -57,7 +57,7 @@ public class BmiCalculatorTestWithCsvFile {
 	}
 
 	@Test
-	public void testResultIsCorrect() {
+	public void testResultCorrectnes() {
 		sendTestData();
 		chromeDriver.findElement(By.xpath("/html/body/section/div/div[2]/div[1]/div/div/form/div[4]/div/button/span")).click();
 		 assertTrue(chromeDriver.findElement(By.className("result-v1__title")).getText().contains(bmi));

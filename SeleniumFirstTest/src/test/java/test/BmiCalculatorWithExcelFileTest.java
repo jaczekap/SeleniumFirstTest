@@ -36,7 +36,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 @RunWith(Parameterized.class)
-public class BmiCalculatorTestWithExcelFile {
+public class BmiCalculatorWithExcelFileTest {
 	
 	private WebDriver chromeDriver;
 	private WebDriverWait wait;
@@ -64,7 +64,7 @@ public class BmiCalculatorTestWithExcelFile {
 		return data;
 	}
 
-	public BmiCalculatorTestWithExcelFile(String weight, String height, String bmi, String bmiCategory) {
+	public BmiCalculatorWithExcelFileTest(String weight, String height, String bmi, String bmiCategory) {
 		this.weight = weight;
 		this.height = height;
 		this.bmi = bmi;
@@ -82,7 +82,7 @@ public class BmiCalculatorTestWithExcelFile {
 	}
 
 	@Test
-	public void testResultIsCorrect() {
+	public void testResultIsAsExpected() {
 		sendTestData();
 		chromeDriver.findElement(By.xpath("/html/body/section/div/div[2]/div[1]/div/div/form/div[4]/div/button/span")).click();
 		assertTrue(chromeDriver.findElement(By.className("result-v1__title")).getText().contains(bmi));
