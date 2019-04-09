@@ -15,6 +15,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class DroDownMenuTest {
 	
@@ -23,7 +24,9 @@ public class DroDownMenuTest {
 	@Before
 	public void setUp() {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-		driverChrome = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-features=VizDisplayCompositor");
+		driverChrome = new ChromeDriver(options);
 		driverChrome.manage().window().maximize();
 		driverChrome.get("https://magento.com/");
 	}

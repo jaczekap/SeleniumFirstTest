@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,7 +26,9 @@ public class GoogleSearchTest {
 		driverMozilla.manage().window().maximize();
 		driverMozilla.get("http://www.google.com");
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-		driverChrome = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-features=VizDisplayCompositor");
+		driverChrome = new ChromeDriver(options);
 		driverChrome.manage().window().maximize();
 		driverChrome.get("http://www.google.com");
 	}

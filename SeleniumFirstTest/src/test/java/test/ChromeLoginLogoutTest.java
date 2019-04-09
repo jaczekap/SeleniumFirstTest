@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,7 +25,9 @@ public class ChromeLoginLogoutTest {
 	@Before
 	public void setUp() {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-		chromeDriver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-features=VizDisplayCompositor");
+		chromeDriver = new ChromeDriver(options);
 		wait = new WebDriverWait(chromeDriver, 3);
 		chromeDriver.manage().window().maximize();
 		chromeDriver.get("http://www.google.com");
@@ -43,7 +46,7 @@ public class ChromeLoginLogoutTest {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"gbw\"]/div/div/div[2]/div[3]/div[1]/a"))).click();
 		chromeDriver.findElement(By.id("gb_71")).click();
 		
-		assertEquals("Zaloguj siê", chromeDriver.findElement(By.id("gb_70")).getText());
+		assertEquals("Zaloguj siï¿½", chromeDriver.findElement(By.id("gb_70")).getText());
 	}
 
 	@After

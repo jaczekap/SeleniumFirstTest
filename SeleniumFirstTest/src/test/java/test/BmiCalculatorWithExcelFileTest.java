@@ -32,6 +32,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -74,7 +75,9 @@ public class BmiCalculatorWithExcelFileTest {
 	@Before
 	public void Before() {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-		chromeDriver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-features=VizDisplayCompositor");
+		chromeDriver = new ChromeDriver(options);
 		wait = new WebDriverWait(chromeDriver, 3);
 		chromeDriver.manage().window().maximize();
 		chromeDriver.get("http://bmi-online.pl/");

@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -34,7 +35,9 @@ public class BmiCalculatorPage {
 	
 	public BmiCalculatorPage() {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-		chromeDriver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-features=VizDisplayCompositor");
+		chromeDriver = new ChromeDriver(options);
 		PageFactory.initElements(chromeDriver, this);
 	}
 	
