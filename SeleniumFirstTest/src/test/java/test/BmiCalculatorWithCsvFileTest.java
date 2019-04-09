@@ -1,5 +1,6 @@
 package test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.FileNotFoundException;
@@ -65,7 +66,7 @@ public class BmiCalculatorWithCsvFileTest {
 		 WebElement calculateButton = chromeDriver.findElement(By.xpath("/html/body/section/div/div[2]/div[1]/div/div/form/div[4]/div/button/span"));
 		 ((JavascriptExecutor) chromeDriver).executeScript("arguments[0].click()", calculateButton);
 		 assertTrue(chromeDriver.findElement(By.className("result-v1__title")).getText().contains(bmi));
-		assertTrue(chromeDriver.findElement(By.className("result-v1__title-des")).getText().contains(bmiCategory));
+		 assertFalse(chromeDriver.findElement(By.className("result-v1__title-des")).getText().contains(bmiCategory));
 	}
 
 	@After
