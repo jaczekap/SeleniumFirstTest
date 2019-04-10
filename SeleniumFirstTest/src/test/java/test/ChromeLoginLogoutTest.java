@@ -51,7 +51,7 @@ public class ChromeLoginLogoutTest {
 
 	@After
 	public void TearDown() {
-		//chromeDriver.close();
+		chromeDriver.close();
 	}
 	
 	private void login() {
