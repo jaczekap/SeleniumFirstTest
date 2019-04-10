@@ -36,27 +36,27 @@ public class ChromeLoginLogoutTest {
 	@Test
 	public void loginTest() {
 		login();
-		String TitleWithLogedMail = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"gbw\"]/div/div/div[2]/div[3]/div[1]/a"))).getAttribute("title");
+		String TitleWithLogedMail = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"gbw\"]/div/div/div[2]/div[2]/div[1]/a"))).getAttribute("title");
 		assertTrue(TitleWithLogedMail.contains(loginIdToTest));
 	}
 	
 	@Test
 	public void logoutTest() {
 		login();
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"gbw\"]/div/div/div[2]/div[3]/div[1]/a"))).click();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"gbw\"]/div/div/div[2]/div[2]/div[1]/a"))).click();
 		chromeDriver.findElement(By.id("gb_71")).click();
 		
-		assertEquals("Zaloguj si�", chromeDriver.findElement(By.id("gb_70")).getText());
+		assertEquals("Zaloguj się", chromeDriver.findElement(By.id("gb_70")).getText());
 	}
 
 	@After
 	public void TearDown() {
-		chromeDriver.close();
+		//chromeDriver.close();
 	}
 	
 	private void login() {
-		loginIdToTest = "";
-		passwordToTest = "";
+		loginIdToTest = "testertestowy33@gmail.com";
+		passwordToTest = "#0TesterTestowy0#";
 		chromeDriver.findElement(By.id("gb_70")).click();
 		WebElement loginId = chromeDriver.findElement(By.id("identifierId"));
 		loginId.clear();
