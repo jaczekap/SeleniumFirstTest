@@ -36,7 +36,10 @@ public class BmiCalculatorPage {
 	public BmiCalculatorPage() {
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
 		ChromeOptions options = new ChromeOptions();
+		
+		//used to resolve issue with chrome73 driver/browser
 		options.addArguments("--disable-features=VizDisplayCompositor");
+		
 		chromeDriver = new ChromeDriver(options);
 		PageFactory.initElements(chromeDriver, this);
 	}
